@@ -1,0 +1,3 @@
+# Style Guide
+
+> Without standard styles applied to code, projects become difficult to follow and transfering code both internally and to the client introduces challenges with understanding the natural complexities of the project. To mitigate this, style guides are followed to ensure a consistent approach to writing and formatting code results in better understanding both for the current developer(s) as well as any which may use the code in the future.
