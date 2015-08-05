@@ -4,7 +4,7 @@ This document is a living document. It is meant to serve as a record of every to
 
 If you feel any necessary content is missing or would like to suggest modifications to the list, **[follow this link to submit your request](#making-modifications-to-the-technologies)**
 
-### Contents
+### Content
   1. [Client-side (browser) development](#client-side-development)  
     - [Frameworks](#frameworks)
     - [Utility Frameworks](#utility-frameworks)
