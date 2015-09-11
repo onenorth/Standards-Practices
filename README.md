@@ -14,10 +14,10 @@ Establishing these areas of focus and presenting strategies and resources for ea
 
 In the coming weeks we will review and define the following resources to assist with development.
 
-* UNDER REVIEW - [Version Control](/version-control) to maintain a clean and efficient workflow
-* TODO - [Style Guide](/style-guide) for both JavaScript and CSS, ensuring common code formatting and readability
-* TODO - [Documentation](/documentation) to provide vital information about code functionality and input/output
-* TODO - [Linting](/linting) to provide code format and standards checking
-* TODO - [Task Management](/task-management) to automate common tasks and processes
-* TODO - [Dependency Management](/dependency-management) for tracking external, third-party dependencies
-* TODO - [Continuous Integration](/continuos-integration) to monitor build throughout development
+* [Version Control](/version-control) to maintain a clean and efficient workflow
+* [Style Guide](/style-guide) for both JavaScript and CSS, ensuring common code formatting and readability
+* [Documentation](/documentation) to provide vital information about code functionality and input/output
+* [Linting](/linting) to provide code format and standards checking
+* [Task Management](/task-management) to automate common tasks and processes
+* [Dependency Management](/dependency-management) for tracking external, third-party dependencies
+* [Continuous Integration](/continuos-integration) to monitor build throughout development
