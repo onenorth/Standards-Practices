@@ -5,7 +5,7 @@ This document is a living document. It is meant to serve as a record of every to
 If you feel any necessary content is missing or would like to suggest modifications to the list, **[follow this link to submit your request](#making-modifications-to-the-technologies)**
 
 ### Content
-  1. [Client-side (browser) development](#client-side-development)  
+  1. [Client-side (browser) development](#client-side-development)
     - [Frameworks](#frameworks)
     - [Utility Frameworks](#utility-frameworks)
     - [DOM Manipulation](#dom-manipulation)
@@ -137,6 +137,10 @@ When changing the client-side URL, you must also use [History.js](https://github
 ### CSS Preprocessor
 
 - [Sass](Sass) (via node-sass)
+
+### CSS Grid System
+
+- [Susy](https://github.com/oddbird/susy) (on-demand grid system)
 
 ### CSS Styleguide
 - [Kickstart Styleguide](https://github.com/onenorth/kickstart-styleguide)
