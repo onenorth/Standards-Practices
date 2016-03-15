@@ -5,7 +5,7 @@ This document is a living document. It is meant to serve as a record of every to
 If you feel any necessary content is missing or would like to suggest modifications to the list, **[follow this link to submit your request](#making-modifications-to-the-technologies)**
 
 ### Content
-  1. [Client-side (browser) development](#client-side-development)  
+  1. [Client-side (browser) development](#client-side-development)
     - [Frameworks](#frameworks)
     - [Utility Frameworks](#utility-frameworks)
     - [DOM Manipulation](#dom-manipulation)
@@ -18,6 +18,7 @@ If you feel any necessary content is missing or would like to suggest modificati
     - [Promises](#promises)
     - [Widgets](#widgets)
     - [Input & Interactions](#input--interactions)
+    - [Animations](#animations)
     - [Data & Endpoint Mocking](#data--endpoint-mocking)
     - [Client Side Routing](#client-side-Routing)
     - [Finite State Machines](#finite-state-machines)
@@ -107,6 +108,10 @@ _The Standards and Practices Board would like to consider the standardization of
 
 ### Input & Interactions
 - [Hammer.js](hammerjs)
+
+### Animations
+- [GreenSock-JS](https://github.com/greensock/GreenSock-JS) (ensure your project fits within their standard "no-charge" license http://greensock.com/standard-license)
+- [Velocity-JS](https://github.com/julianshapiro/velocity) (MIT license - no restrictions)
 
 ### Data & Endpoint Mocking
 
