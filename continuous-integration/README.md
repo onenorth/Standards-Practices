@@ -1,12 +1,12 @@
 # Continuous Integration and Deployment
 
-> As code is developed, issues that occur can remain undetected until further 
-into the development process when they become more challenging to debug and 
-correct. Continuous integration ensures that code is constantly and consistently 
-passing tests, linting, and building correctly to ensure that unforeseen errors 
-are minimized early in the development process. The last aspect of this process, 
-continuous deployment, involves placing the built code onto a server that is 
-accessible to clients as well as internal staff to see progress and provide 
+> As code is developed, issues that occur can remain undetected until further
+into the development process when they become more challenging to debug and
+correct. Continuous integration ensures that code is constantly and consistently
+passing tests, linting, and building correctly to ensure that unforeseen errors
+are minimized early in the development process. The last aspect of this process,
+continuous deployment, involves placing the built code onto a server that is
+accessible to clients as well as internal staff to see progress and provide
 continuous feedback.
 
 * [Local Development](#local-development)
@@ -25,18 +25,18 @@ continuous feedback.
 
 ## Local Development
 
-During development, engineers should use a tool such as 
-[grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch) to emulate 
-the continuous integration process. This tool allows various steps of the build 
-process to be executed any time a change is made to project files. This ensures that 
-even before the code is committed to source control it receives cursory coverage 
+During development, engineers should use a tool such as
+[grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch) to emulate
+the continuous integration process. This tool allows various steps of the build
+process to be executed any time a change is made to project files. This ensures that
+even before the code is committed to source control it receives cursory coverage
 from tests and linting.
 
 ## TeamCity
 
-[TeamCity](http://www.jetbrains.com/teamcity) is a system for executing continuous 
-integration and deployment scenarios developed by 
-[JetBrains](http://www.jetbrains.com). You can access the appendTo 
+[TeamCity](http://www.jetbrains.com/teamcity) is a system for executing continuous
+integration and deployment scenarios developed by
+[JetBrains](http://www.jetbrains.com). You can access the appendTo
 TeamCity server at the address below:
 
 http://teamcity.ap2.us:8111
@@ -56,16 +56,16 @@ The basic process once all configuration is complete looks like this:
 
 ### Preparing Your Repository
 
-All of the implementation for the individual steps of your build process are handled 
-by the `"scripts"` block of your package.json file. Just to be clear, __all projects 
-using TeamCity must have a package.json file__, even if they do not implement any of 
+All of the implementation for the individual steps of your build process are handled
+by the `"scripts"` block of your package.json file. Just to be clear, __all projects
+using TeamCity must have a package.json file__, even if they do not implement any of
 these build steps.
 
-In your package.json file, create a new object called `"scripts"`, each step of 
-the build process will have an entry in this object. The value of the entry will 
-be executed on the command line on your droplet (virtual server). In this manner, 
-you, the developer, may execute any commands necessary for your build process. All 
-of the output from these commands will be sent back to TeamCity and reported in 
+In your package.json file, create a new object called `"scripts"`, each step of
+the build process will have an entry in this object. The value of the entry will
+be executed on the command line on your droplet (virtual server). In this manner,
+you, the developer, may execute any commands necessary for your build process. All
+of the output from these commands will be sent back to TeamCity and reported in
 the build log.
 
 Here is an example of how you might configure your package.json file:
@@ -85,9 +85,9 @@ Here is an example of how you might configure your package.json file:
 }
 ```
 
-Each of the entries in the `"scripts"` block above will be executed at a specific 
-time during the build process. You can see more about those steps in the 
-"Configuring Your Project in TeamCity" section below. Here are some important 
+Each of the entries in the `"scripts"` block above will be executed at a specific
+time during the build process. You can see more about those steps in the
+"Configuring Your Project in TeamCity" section below. Here are some important
 notes about these steps:
 
 * Commands always run as root, this may affect permissions, so be cautious!
@@ -109,21 +109,21 @@ notes about these steps:
   1. `prestart`
   1. `start`
 
-Lastly, note that the `provision` and `test` steps are executed from the 
-temporary directory that files are cloned into, not the final application 
-directory. Thus, if the tests fail, the application is never stopped and will 
-continue to function as before. All other steps are executed from the final 
-application directory. In general, __your scripts should only use relative 
-paths to your project code__. However, you can always change the current working 
+Lastly, note that the `provision` and `test` steps are executed from the
+temporary directory that files are cloned into, not the final application
+directory. Thus, if the tests fail, the application is never stopped and will
+continue to function as before. All other steps are executed from the final
+application directory. In general, __your scripts should only use relative
+paths to your project code__. However, you can always change the current working
 directory in your `"scripts"` block command with a simple `cd /foo/bar;`.
 
 #### Front End Only Applications
 
-If you are only developing a front end application then you will need something 
-running as a web server to serve up those HTML, CSS, image, and JS files. There are 
-many options, but a nice simple one is this 
-[http-server](https://github.com/nodeapps/http-server) built with Node. Since we 
-have Forever already installed, you could simply add this to your package.json 
+If you are only developing a front end application then you will need something
+running as a web server to serve up those HTML, CSS, image, and JS files. There are
+many options, but a nice simple one is this
+[http-server](https://github.com/nodeapps/http-server) built with Node. Since we
+have Forever already installed, you could simply add this to your package.json
 `"provision"` step and then start the server in your `"start"` line:
 
 ```
@@ -139,8 +139,8 @@ have Forever already installed, you could simply add this to your package.json
 
 #### Status Icon
 
-The Project Lead should also update the primary README file in the repository adding 
-a status icon/badge at the very top (next to or under the project name). You will 
+The Project Lead should also update the primary README file in the repository adding
+a status icon/badge at the very top (next to or under the project name). You will
 need to find your build config ID (see the next section) and the line below:
 
 ```
@@ -151,9 +151,9 @@ __Don't forget to replace `[BUILD_CONFIG_ID]` with your actual build config ID!_
 
 ### Configuring Your Project in TeamCity
 
-Generally speaking, the process inside TeamCity is this: the Engagement Manager for a 
-project will create the new project, then the Project Lead will configure the build 
-(including version control settings, build steps, and notifications), and then any 
+Generally speaking, the process inside TeamCity is this: the Engagement Manager for a
+project will create the new project, then the Project Lead will configure the build
+(including version control settings, build steps, and notifications), and then any
 team member can view executed builds and run manual builds if necessary.
 
 #### Creation and Access (Engagement Manager)
@@ -161,12 +161,12 @@ team member can view executed builds and run manual builds if necessary.
 1. Log into Team City (See the "Need Help?" section below if you need access)
 1. Go to the "Solutions Delivery" project and click on "Edit Project Settings" in the top right
 1. Scroll down, and click on the "Create subproject" button
-1. Enter the name and a very brief description  
+1. Enter the name and a very brief description
   (The "Project ID" will be auto-generated, may be best to leave it that way)
 1. Click on the "Create" button
 
-This is all that is required to create the project, but no one will have access to it! 
-The Engagement Manager should then give access to all project team members, including 
+This is all that is required to create the project, but no one will have access to it!
+The Engagement Manager should then give access to all project team members, including
 separate permissions for the Project Lead.
 
 1. Click on the "Administration" link in the top right of the screen, then on "Users" on the left
@@ -177,8 +177,8 @@ separate permissions for the Project Lead.
 
 #### Version Control and Build Config (Project Lead)
 
-Once the project is created and access is granted the TeamCity build is ready to be 
-configured by the Project Lead. The first step is setting up the connection to the 
+Once the project is created and access is granted the TeamCity build is ready to be
+configured by the Project Lead. The first step is setting up the connection to the
 git repository:
 
 1. From the dashboard, click on the project name, then on "Edit project settings" in the top right
@@ -191,7 +191,7 @@ git repository:
   * Note: this step may be changing, stay tuned.
 1. All other options should be fine on their defaults (change at your own risk), so click the "Create" button
 
-With the version control settings entered, the last step is to configure the build 
+With the version control settings entered, the last step is to configure the build
 steps:
 
 1. In the left menu select "General Settings"
@@ -211,58 +211,58 @@ steps:
 1. Lastly, click on "Parameters" in the left menu, then "Delete" next to the "vcsroot.ul" parameter
   * If you don't delete this parameter, then TeamCity will try to use an empty string for your git fetch URL!
 
-At this point your setup may be complete. If necessary, you can go into the 
-"Build Steps" screen and disable any unnecessary steps. However, 
-_do not disable the `provision` or `deploy` steps_, they are necessary for proper 
-operation. Note that even if you are not using a specific step in your project you 
+At this point your setup may be complete. If necessary, you can go into the
+"Build Steps" screen and disable any unnecessary steps. However,
+_do not disable the `provision` or `deploy` steps_, they are necessary for proper
+operation. Note that even if you are not using a specific step in your project you
 may leave the build step in place, it will be ignored if there is nothing to do.
 
-Lastly, note that your first build will be creating a new virtual machine (droplet) 
-in our Digital Ocean account. Because of this, the first build run may take longer 
+Lastly, note that your first build will be creating a new virtual machine (droplet)
+in our Digital Ocean account. Because of this, the first build run may take longer
 than usual.
 
 ### Running and Viewing Builds
 
-Your project build will run automatically when changes are pushed to the branch 
-you specified in the steps above in the "Version Control and Build Config" section. 
-There is a 60 second delay so that any pushes in quick succession will be rolled 
-into one build run. That said, any team member can manually submit a build to run. 
+Your project build will run automatically when changes are pushed to the branch
+you specified in the steps above in the "Version Control and Build Config" section.
+There is a 60 second delay so that any pushes in quick succession will be rolled
+into one build run. That said, any team member can manually submit a build to run.
 When doing so, you should first check that there are no builds already running.
 
-You can see all builds (past and currently running) on the build config page. From 
-the dashboard, click on your project's name, then on the name of your build config. 
-Alternately, you can click directly on the build config name from your dashboard. 
-This page will show you if TeamCity has detected any "Pending changes" that will 
-spawn a new build run, whether or not the build is currently running 
-("Current status"), and the recent history of builds. Any green icon 
-(![success](http://teamcity.ap2.us:8111/img/buildStates/buildSuccessful.png)) 
-indicates a successful build, and a red icon 
-(![failure](http://teamcity.ap2.us:8111/img/buildStates/buildFailed.png)) 
-indicates failre (and the exit code will be displayed).
+You can see all builds (past and currently running) on the build config page. From
+the dashboard, click on your project's name, then on the name of your build config.
+Alternately, you can click directly on the build config name from your dashboard.
+This page will show you if TeamCity has detected any "Pending changes" that will
+spawn a new build run, whether or not the build is currently running
+("Current status"), and the recent history of builds. Any green icon
+(![success](http://teamcity.ap2.us:8111/img/buildStates/buildSuccessful.png))
+indicates a successful build, and a red icon
+(![failure](http://teamcity.ap2.us:8111/img/buildStates/buildFailed.png))
+indicates failure (and the exit code will be displayed).
 
 #### Build Details and Log
 
-You can click on any build (currently running or past) to see the details. The 
-entry page for a specific build run is not terribly exciting for successes, on 
-failrures it displays any error output (but not the full log). Clicking on the 
-"Build Log" tab will display the full log for that run. Note that if this is a 
+You can click on any build (currently running or past) to see the details. The
+entry page for a specific build run is not terribly exciting for successes, on
+failrures it displays any error output (but not the full log). Clicking on the
+"Build Log" tab will display the full log for that run. Note that if this is a
 currently executing run, the log will update as each step completes.
 
-You can expand each step of the build log using the "+" icon next to the step 
-number, but it will open automatically to any errors. Error entries will appear 
-in <span style="color:red;">red</span>, with other useful information highlighted 
-in <span style="color:orange;">orange</span>. All interaction with the code on 
-your droplet is done via `ssh`, thus any output will be delivered once the `ssh` 
-command finishes execution. As such, do not be concerned if you do not immediately 
-see any output from a particular step, you will see it once the command is 
+You can expand each step of the build log using the "+" icon next to the step
+number, but it will open automatically to any errors. Error entries will appear
+in <span style="color:red;">red</span>, with other useful information highlighted
+in <span style="color:orange;">orange</span>. All interaction with the code on
+your droplet is done via `ssh`, thus any output will be delivered once the `ssh`
+command finishes execution. As such, do not be concerned if you do not immediately
+see any output from a particular step, you will see it once the command is
 completed, either successfully or not.
 
 #### Handling Errors
 
-As mentioned in the section above, the "Build Log" will show you all output from 
-the commands sent to your virtual machine (droplet). This output will often 
-contain any errors that occurred as well. That said, sometimes the root of an 
-error is harder to uncover. Here are couple common errors that are difficult to 
+As mentioned in the section above, the "Build Log" will show you all output from
+the commands sent to your virtual machine (droplet). This output will often
+contain any errors that occurred as well. That said, sometimes the root of an
+error is harder to uncover. Here are couple common errors that are difficult to
 discern:
 
 ```
@@ -275,27 +275,27 @@ or
 { [Error: ssh returned with error code: 127] code: 17 }
 ```
 
-Both of the errors above have to do with the proper set up of your server and 
-typically have to do with access to specific commands. For example, you may try to  
-use a global `npm` module to start your application, but forgot to install the 
+Both of the errors above have to do with the proper set up of your server and
+typically have to do with access to specific commands. For example, you may try to
+use a global `npm` module to start your application, but forgot to install the
 module in your `"provision"` step when your droplet is created.
 
-If you still cannot determine the error, it may be helpful to contact one of the 
-TeamCity administrators (see below) to look at the log files and attempt to run 
-a command "manually" on the target droplet. (This is something you can do 
+If you still cannot determine the error, it may be helpful to contact one of the
+TeamCity administrators (see below) to look at the log files and attempt to run
+a command "manually" on the target droplet. (This is something you can do
 yourself, but we can help!)
 
-Once you disciover the error, it may be useful to see what the change was that 
-caused it. You can click on the "Changes" tab to display exactly what changed to 
-spawn this run. There are options to see what files changed, what the commit 
-messages were, and who made the change. If you don't see any changes on this tab 
+Once you discover the error, it may be useful to see what the change was that
+caused it. You can click on the "Changes" tab to display exactly what changed to
+spawn this run. There are options to see what files changed, what the commit
+messages were, and who made the change. If you don't see any changes on this tab
 then the build run was most likely submitted manually.
 
 ## Need Help?
 
-If you have any questions about this process or have any technical difficulties, 
+If you have any questions about this process or have any technical difficulties,
 please contact Jordan Kasper or Nick Cloud.
 
-If you need access to the system or your project, your first contact should be your 
-Engagement Manager. If they are unavailable or unable to add you, then you should 
+If you need access to the system or your project, your first contact should be your
+Engagement Manager. If they are unavailable or unable to add you, then you should
 contact Matt Hildebrand (or if absolutely necessary, Jordan or Nick).
