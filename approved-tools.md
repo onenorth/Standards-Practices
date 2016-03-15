@@ -5,7 +5,7 @@ This document is a living document. It is meant to serve as a record of every to
 If you feel any necessary content is missing or would like to suggest modifications to the list, **[follow this link to submit your request](#making-modifications-to-the-technologies)**
 
 ### Content
-  1. [Client-side (browser) development](#client-side-development)  
+  1. [Client-side (browser) development](#client-side-development)
     - [Frameworks](#frameworks)
     - [Utility Frameworks](#utility-frameworks)
     - [DOM Manipulation](#dom-manipulation)
@@ -78,6 +78,7 @@ _The Standards and Practices Board would like to consider the standardization of
 
 - [jQuery Promises](https://api.jquery.com/promise/) (When *already* using jQuery)
 - [Angular $q](angularPromise) (When *already* using Angular)
+- [Async](https://github.com/caolan/async) (When you need a full featured promise library)
 
 ### Widgets
 
