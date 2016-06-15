@@ -32,6 +32,8 @@ When using the Git workflow it is imparitive that team members properly utilize 
     * Ideally, Have other team members review the changes and ensure there are no conflicts
 * Once merged and pushed to master the code will be built via the CI system. Check to ensure that the build passes.
  
+> Note: Please see our branching strategy: [Branching document](/version-control/branching)
+ 
 ### Every project should contain a Readme.md
 A great README is a great way to introduce a new developer to a project and equip them with the necessary information to work with the project successfully.  A good README should include the following information as it applies to a specific project.  It is generally better to add more information, so in all cases, please add as much information as possible to the README to help future contributors.
 
