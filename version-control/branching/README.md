@@ -30,15 +30,15 @@ To maintain the integrity of the branches and ensure we can deploy features inde
 > dev is the same as environment-qa
 
 1. create your feature branch
-```
+```bash
 # grab the latest from origin/master
 git pull --rebase origin master
 
 # create your feature branch
 git checkout -b feature-my
 ```
-2. commit your changes
-```
+1. commit your changes
+```bash
 # stage and commit your changes to feature branch
 git add -A
 git commit -m "comment"
@@ -46,8 +46,8 @@ git commit -m "comment"
 # push your branch to origin
 git push origin feature-my
 ```
-3. deploy changes to QA for internal review
-```
+1. deploy changes to QA for internal review
+```bash
 # rebase from origin/master and resolve any conflicts
 git pull --rebase origin master
 
@@ -68,7 +68,7 @@ git merge feature-my
 git push origin environment-qa
 ```
 4. deploy changes to staged for client review
-```
+```bash
 # checkout your feature branch and rebase from master
 git checkout feature-my
 git pull --rebase origin master
@@ -83,7 +83,7 @@ git merge feature-my
 git push origin environment-staged
 ```
 5. deploy changes to production
-```
+```bash
 # checkout your feature branch and rebase from master
 git checkout feature-my
 git pull --rebase origin master
