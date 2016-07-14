@@ -27,7 +27,6 @@ To maintain the integrity of the branches and ensure we can deploy features inde
 ## A Simple Example
 
 ![branching](https://cloud.githubusercontent.com/assets/10470870/16093457/96a9b692-3301-11e6-94f4-86087d51cac4.png)
-> dev is the same as environment-qa
 
 1. create your feature branch
   ```bash
@@ -39,26 +38,24 @@ To maintain the integrity of the branches and ensure we can deploy features inde
   ```
 1. commit your changes
   ```bash
-  # stage and commit your changes to feature branch
-  git add -A
+  # Edit some files
+  git add <file>
   git commit -m "comment"
+  # Repeat
   
   # push your branch to origin
   git push origin feature-my
   ```
+1. update your branch with changes from master
+  ```bash
+  # TODO
+  ```
 1. deploy changes to QA for internal review
   ```bash
-  # rebase from origin/master and resolve any conflicts
-  git pull --rebase origin master
-  
-  # push your branch to origin
-  git push origin feature-my
-  
   # switch to the QA branch
   git checkout environment-qa
   
-  # pull environment-qa
-  # (which could contain merged branches from other team members)
+  # pull environment-qa (which could contain merged branches from other team members)
   git pull
   
   # merge your branch
@@ -69,30 +66,31 @@ To maintain the integrity of the branches and ensure we can deploy features inde
   ```
 4. deploy changes to staged for client review
   ```bash
-  # checkout your feature branch and rebase from master
-  git checkout feature-my
-  git pull --rebase origin master
-  
-  # push your branch to origin
-  git push origin feature-my
-  
-  # follow the previous step only using the staged branch
+  # switch to the staged branch
   git checkout environment-staged
+
+  # pull environment-staged (which could contain merged branches from other team members)
   git pull
+
+  # merge your branch
   git merge feature-my
+
+  # push changes to origin/environment-staged (which triggers a deploy in a perfect world)
   git push origin environment-staged
   ```
 5. deploy changes to production
   ```bash
-  # checkout your feature branch and rebase from master
-  git checkout feature-my
-  git pull --rebase origin master
+  # switch to the staged branch
+  git checkout master
+
+  # pull master (which could contain merged branches from other team members)
+  git pull
+
+  # merge your branch
+  git merge feature-my
   
-  # push your branch to origin
-  git push origin feature-my
-  
-  # open a Pull Request to merge feature branch into master
-  # or merge it to master manually
+  # push changes to origin/master (which triggers a deploy in a perfect world)
+  git push origin master
   ```
 
 Contributors:
